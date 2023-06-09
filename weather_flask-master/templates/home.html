@@ -1,0 +1,27 @@
+{% extends 'basic.html'%}
+{% block title %}Weather App{% endblock %}
+{% block body %}
+    <div class='text-center'>
+      <div class='my-5'>
+          <h1>Weather App</h1>
+      </div>
+      <div class="container">
+          <form action="/" method='POST'>
+              Enter Your City Name :-
+              <div class='col-sm'>
+              <input type='text' class="form-control"  id='cityname' name='cityname' placeholder='City Name '><br>
+              <div>
+              Enter Your State Name :-
+              <div class='col-sm'>
+              <input type='text' class="form-control"  id='statename' name='statename' placeholder='State Name '><br>
+              <div>
+              Enter Your Country Name :-
+              <div class='col-sm'>
+              <input type='text' class="form-control"  id='countryname' name='countryname' placeholder='Country Name '><br>
+              <div>
+              <button type="submit" class="btn btn-secondary">Search</button>
+          </form>
+      </div>  
+    </div>
+    {% endblock %}
+   

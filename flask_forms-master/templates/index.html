@@ -1,0 +1,73 @@
+{% extends 'basic.html'%}
+{% block title%} Thanks for Submitting {% endblock %}
+{% block body %}
+
+
+	<div class="contact1">
+		<div class="container-contact1">
+			<div class="contact1-pic js-tilt" data-tilt>
+				<img src="static/images/img-01.png" alt="IMG">
+			</div>
+
+			<form class="contact1-form validate-form" action="/" method="POST">
+				<span class="contact1-form-title">
+					Get in touch
+				</span>
+
+				<div class="wrap-input1 validate-input" data-validate = "Name is required">
+					{{form.name.label}}
+					
+					{% if form.name.errors %}
+					{{form.name(class="form-control rounded is-invalid")}}
+						<div class="invalid-feedback">
+							{%for error in form.name.errors%}
+								<span> {{error}}</span>
+							{%endfor%}
+						</div>
+					{%else%}
+						{{form.name(class="form-control rounded")}}
+					{% endif %}
+				</div>
+
+				<div class="wrap-input1 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+					{{form.email.label}}
+					
+					{% if form.email.errors %}
+					{{form.email(class="form-control is-invalid")}}
+						<div class="invalid-feedback">
+							{%for error in form.email.errors%}
+								<span> {{error}}</span>
+							{%endfor%}
+						</div>
+					{%else%}
+						{{form.email(class="form-control")}}
+					{% endif %}
+				</div>
+
+				<div class="wrap-input1 validate-input" data-validate = "Subject is required">
+					{{form.subject.label}}
+					{% if form.subject.errors %}
+					{{form.subject(class="form-control is-invalid")}}
+						<div class="invalid-feedback">
+							{%for error in form.subject.errors%}
+								<span> {{error}}</span>
+							{%endfor%}
+						</div>
+					{%else%}
+						{{form.subject(class="form-control")}}
+					{% endif %}
+				</div>
+
+				<div class="wrap-input1 validate-input" data-validate = "Message is required">
+					{{form.message.label}}
+					{{form.message(class="form-control")}}
+				</div>
+
+				<div class="container-contact1-form-btn">
+						{{form.submit(class="contact1-form-btn")}}
+				</div>
+			</form>
+		</div>
+	</div>
+
+	{%endblock%}

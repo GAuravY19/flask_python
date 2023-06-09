@@ -1,0 +1,30 @@
+{%extends 'basic.html'%}
+{% block title %} Weather {% endblock%}
+{% block body %}
+	<div class="contact1">
+		<div class="container-contact1">
+			<div class="contact1-pic js-tilt" data-tilt>
+				<img src="static/images/8492843.png" alt="IMG">
+			</div>
+
+			<form class="contact1-form validate-form">
+				<span class="contact1-form-title">
+					Weather Report
+				</span>
+                <div class="container">
+                    {% if data %}
+                        <h3><p class="fw-bold text-center"> Conditions :- {{ data.description }}</p></h3>
+                        <h3><p class="fw-bold text-center my-2">{{ data.temperature }} &#8451;</p></h3>
+                        <h3><p class="fw-bold text-center my-2"> Feels like :-{{ data.feels_like}} &#8451;</p></h3>
+                        <div class="container d-flex justify-content-center align-item-center">
+                            <img src="https://openweathermap.org/img/wn/{{data.icon}}.png" alt='icon' width="150" height="150">
+                        </div>
+                    <h3><p class="fw-bold text-center"> Max-Temperature :-{{ data.temperature_min }}&#8451;</p></h3><br>
+                    <h3><p class="fw-bold text-center"> Min-Temperature :- {{ data.temperature_max }}&#8451;</p></h3>
+                    {% endif %}
+                </div>
+			</form>
+		</div>
+	</div>
+
+{% endblock %}
